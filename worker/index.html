@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('start')
+        //  不使用worker
+        //  1->10**8
+        // let total = 0
+        // for(let i=0;i<10**9;i++){
+        //     total +=i
+        // }
+        // console.log('total',total)
+
+
+        //  使用worker
+        const worker = new Worker('worker.js')
+        worker.addEventListener('message',e=>{
+            console.log('e.data',e.data)
+            console.log('total',e.data.total)
+        })
+        worker.postMessage([1,2,3]);
+        console.log('end')
+    </script>
+</body>
+</html>
