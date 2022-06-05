@@ -1,0 +1,23 @@
+{
+    "name":"hello manifest",    //  名称，启动页的名字
+    "short_name":"manifest sn", //  桌面显示的名字
+    "start_url":"/index.html",   //  首页
+    "icons":[
+        {
+            "src": "images/msapplication-icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },{
+            "src": "images/mstile-150x150.png",
+            "sizes": "150x150",
+            "type": "image/png"
+          }, {
+            "src": "images/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          }
+    ],                          //  应用的图标，根据不同分辨率显示不同的图标
+    "background_color":"#000",  //  程序启动时的背景颜色
+    "them_color":"#fff",        //  程序的主题颜色
+    "display":"standalone"      //  显示模式 fullscreen:全屏 类似小程序的custom;standalone:应用;minimal-ui:简易版的应用
+}
