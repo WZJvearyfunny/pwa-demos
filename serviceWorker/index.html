@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入，被fetch监控 -->
+    <link rel="stylesheet" href="./idnex.css"/>
+</head>
+<body>
+    <h1>service worker</h1>
+    <script>
+        //  service worker 基础
+        // window.addEventListener('load',()=>{
+        //     if('serviceWorker' in navigator){
+        //         navigator.serviceWorker.register('./sw.js').then(reg=>{
+        //         console.log(reg)
+        //         }).catch((err)=>{
+        //             console.log(err)
+        //         })
+        //     }
+        // })
+
+        // fetch('./data.json').then(res=>{
+        //     return res.json()
+        // }).then(data=>{
+        //     console.log('data',data)
+        // })
+
+        //  service worker & cacheStorage
+        window.addEventListener('load',async()=>{
+            if('serviceWorker' in navigator){
+                try{
+                    const registration = await navigator.serviceWorker.register('./sw.js')
+                    console.log('注册成功',registration)
+                }catch(e){
+                    console.log('注册失败')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

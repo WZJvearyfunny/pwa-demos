@@ -20,10 +20,16 @@
 
         //  使用worker
         const worker = new Worker('worker.js')
+        //  监听worker.js回传 方法1
         worker.addEventListener('message',e=>{
             console.log('e.data',e.data)
             console.log('total',e.data.total)
         })
+        //  监听worker.js回传 方法2
+        worker.onmessage = (msg)=>{
+            console.log('msg',msg)
+        }
+        //  传值给worker.js
         worker.postMessage([1,2,3]);
         console.log('end')
     </script>
